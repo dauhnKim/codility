@@ -31,8 +31,10 @@ X ≤ Y.
 
 function solution(X, Y, D) {
   const destination = Y - X;
-  const count = Math.floor(destination / D);
-  const jumps = count ? count + 1 : count;
+  console.log("Math.floor(destination % D)", Math.floor(destination % D));
+  const jumps = Math.floor(destination % D)
+    ? Math.floor(destination / D) + 1
+    : Math.floor(destination / D);
 
   return jumps;
   /* 풀이 1.
