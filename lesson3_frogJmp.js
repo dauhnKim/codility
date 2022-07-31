@@ -1,3 +1,23 @@
+const array = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55];
+
+function fn(index) {
+  /* todo somthing*/
+  let series = [1];
+  let count = 0;
+
+  for (let i = 0; i <= index; i++) {
+    if (i === 0) count = 1;
+    if (i !== 0) {
+      count = count + series[i - 1];
+    }
+    series.push(count);
+  }
+  console.log("series", series);
+}
+
+fn(8);
+fn(4);
+
 /*
 A small frog wants to get to the other side of the road. 
 The frog is currently located at position X and wants 
@@ -31,7 +51,6 @@ X ≤ Y.
 
 function solution(X, Y, D) {
   const destination = Y - X;
-  console.log("Math.floor(destination % D)", Math.floor(destination % D));
   const jumps = Math.floor(destination % D)
     ? Math.floor(destination / D) + 1
     : Math.floor(destination / D);
