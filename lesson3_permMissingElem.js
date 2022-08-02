@@ -41,6 +41,7 @@ function solution(A) {
     if (arr[i] !== i + 1) return i + 1;
   }
 
+  // 빈 array일 경우
   return arr.length + 1;
 }
 
