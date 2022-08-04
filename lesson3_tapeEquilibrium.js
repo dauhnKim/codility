@@ -43,22 +43,20 @@ N is an integer within the range [2..100,000];
 each element of array A is an integer within the range [−1,000..1,000]. */
 
 function solution(A) {
-  let accArr = [];
-  let resArr = [];
-  let answer = 0;
+  const accArr = [];
   const total = A.reduce((a, c) => a + c, 0);
 
-  A.reduce((a, c) => {
-    accArr.push(a);
-    return a + c;
+  let answer = Number.MAX_SAFE_INTEGER;
+
+  A.reduce((acc, cur) => {
+    accArr.push(acc);
+    return acc + cur;
   });
 
   for (const val of accArr) {
-    answer = Math.abs(val - (total - val));
-    resArr.push(answer);
+    let newAnswer = Math.abs(val - (total - val));
+    answer = Math.min(answer, newAnswer);
   }
-
-  answer = Math.min(...resArr);
 
   return answer;
 }
