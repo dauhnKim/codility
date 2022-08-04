@@ -49,16 +49,13 @@ function solution(A) {
   let res = 1;
   const sortedArr = A.sort((a, b) => b - a);
 
-  if (sortedArr.at(-1) !== 1) return (answer = 0);
+  if (sortedArr.at(-1) !== 1) return (res = 0);
 
   for (let i = 0; i < sortedArr.length - 1; i++) {
     const curNum = sortedArr[i];
     const nextNum = sortedArr[i + 1];
 
-    if (curNum - nextNum !== 1) {
-      res = 0;
-      return res;
-    }
+    if (curNum - nextNum !== 1) return (res = 0);
   }
 
   return res;
