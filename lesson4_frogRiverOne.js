@@ -62,8 +62,8 @@ each element of array A is an integer within the range [1..X].
 4. 루프를 돌고 난 뒤에도 index가 반환되지 않았을 경우에는 -1을 최종적으로 반환
 */
 
-let C = [1, 3, 1, 4, 2, 3, 5, 4];
 let Y = 5;
+let C = [1, 3, 1, 4, 2, 3, 5, 4];
 
 function solution(X, A) {
   let set = new Set();
