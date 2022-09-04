@@ -56,11 +56,29 @@ const array = [3, 4, 4, 6, 1, 4, 4];
 
 function solution(N, A) {
   let counters = new Array(N).fill(0);
+  let max = 0;
+  let lastMax = 0;
 
-  for (const num of A) {
-    if (1 <= num && num <= N) {
-      counters[num - 1] += 1;
-    } else if (num === N + 1) counters.fill(Math.max(...counters));
+  for (let K in A) {
+    let X = A[K];
+    console.log(X);
+    if (X <= N) {
+      if (counters[X - 1] < lastMax) {
+        counters[X - 1] = lastMax;
+      }
+      counters[X - 1]++;
+      if (max < counters[X - 1]) {
+        max = counters[X - 1];
+      }
+    } else {
+      lastMax = max;
+    }
+  }
+
+  for (let i = 0; i < N; i++) {
+    if (counters[i] < lastMax) {
+      counters[i] = lastMax;
+    }
   }
 
   return counters;
